@@ -1,7 +1,8 @@
 
 import React, {useState, useEffect} from 'react';
+import useApi from '../../utils/useApi'
 import {useHistory} from 'react-router-dom'
-import axios from 'axios'
+//import axios from 'axios'
 import './Form.css'
 
 
@@ -14,20 +15,34 @@ const initialValue = {
 
 const PromotionForm = ({ id }) => {
     const [values, setValues] = useState(id ? null : initialValue)
-    //console.log(values)
     const history = useHistory()
-    //console.log(id)
+
+    const [load] = useApi({
+        url: `/promotions/${id}`,
+        method: 'get', 
+        onCompleted: (res) => {
+            setValues(res.data)
+        }
+    })
+
+    const [save, saveInfo] = useApi({
+        url: id
+        ? `promotions/${id}`
+        : '/promotions',
+        method: id ? 'put' : 'post',
+        onCompleted: (res) => {
+           if (!res.error) {
+               history.push('/')
+           }
+
+        }
+    })
 
     useEffect(() => {
         if (id) {
-            axios.get(`http://localhost:5000/promotions/${id}`)
-            .then((res) => {
-                //console.log(res.data)
-            setValues(res.data)
-            })
+            load()
         }
-
-    }, [])
+    }, [id])
 
     function onChange(ev) {
         const {name, value} = ev.target
@@ -38,17 +53,19 @@ const PromotionForm = ({ id }) => {
 
     function onSubmit(ev) {
         ev.preventDefault()
-
-        const method = id ? 'put' : 'post'
-        const url = id
-        ? `http://localhost:5000/promotions/${id}`
-        : 'http://localhost:5000/promotions'
-
-        axios[method](url, values)
-        .then((response) => {
-            history.push('/')
-
+        save({
+            data: values
         })
+        // const method = id ? 'put' : 'post'
+        //const url = id
+        // ? `http://localhost:5000/promotions/${id}`
+        // : 'http://localhost:5000/promotions'
+
+        // axios[method](url, values)
+        // .then((response) => {
+        //     history.push('/')
+
+        // })
     }
 
         return (
@@ -60,6 +77,9 @@ const PromotionForm = ({ id }) => {
                     <div>Carregando...</div>
                 ): (
                 <form onSubmit={onSubmit}>
+
+                    {saveInfo.loading && <span>Salvando Dados...</span>}
+
                     <div className="promotion-form__group">
                         <label htmlFor="title">Título</label>
                         <input 
