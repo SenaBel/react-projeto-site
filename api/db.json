@@ -36,11 +36,18 @@
       "id": 5
     },
     {
-      "title": "",
-      "url": "",
-      "imageUrl": "",
-      "price": 0,
+      "title": "Jogo De Cama Casal",
+      "url": "https://www.riachuelo.com.br/jogo-de-cama-casal-geometrico-francis-13412477001_sku",
+      "imageUrl": "https://cdn.gatry.com/gatry-static/promocao/imagem/e930502329e0161b1c23b18e1a182174.png",
+      "price": "37.90",
       "id": 6
+    },
+    {
+      "title": "Mesa para Tênis de Mesa em MDF - Klopf Pés Dobráveis em Madeira Maciça e Rodízios",
+      "url": "https://www.magazinevoce.com.br/magazinegatry/p/mesa-para-tenis-de-mesa-em-mdf-klopf-pes-dobraveis-em-madeira-macica-e-rodizios/18194/",
+      "imageUrl": "https://cdn.gatry.com/gatry-static/promocao/imagem/e968952b393eba109af36bcd884cf4be.png",
+      "price": "949",
+      "id": 7
     }
   ],
   "comments": [

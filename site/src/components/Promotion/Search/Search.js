@@ -25,7 +25,7 @@ const PromotionSearch = () => {
   return (
       <div className="promotion-search">
           <header className="promotion-search__header">
-              <h1>Promotion TOP</h1>
+              <h1>Site Promoção</h1>
 
               <Link 
               to="/create" 

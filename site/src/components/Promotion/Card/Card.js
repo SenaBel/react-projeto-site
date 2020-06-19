@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './Card.css'
 
 const PromotionCard = ({promotion}) => (
@@ -28,6 +29,9 @@ const PromotionCard = ({promotion}) => (
             > 
             IR PARA O SITE
             </a>
+
+            <Link to={`/edit/${promotion.id}`}>Editar</Link>
+
         </footer>
 
       </div>

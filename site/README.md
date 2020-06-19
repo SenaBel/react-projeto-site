@@ -4,3 +4,5 @@
 ### UM DOS SITE DE DOCUMENTAÇÃO DO REACT " reacttraining.com/react-router/web/guides/quick-start "
 ### ESSE É OUTRO SITE DE DOCUMENTAÇÃO DO REACT " https://create-react-app.dev/docs/importing-a-component "
 
+### SITE PARA PEGAR AS PROMOÇOES "https://gatry.com/"
+
